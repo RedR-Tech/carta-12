@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #a060c0;
+  background-image: url('../assets/carta.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 70%;
+  background-attachment: fixed;
+  backdrop-filter: brightness(0.9) blur(1px);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Fundo lilás/roxo para a segunda página */
+body.carta-aberta {
+  background-image: none;
+  background: linear-gradient(135deg, #e1bee7, #9c27b0);
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 90%;
+  max-width: 600px;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  background: rgba(155, 89, 182, 0.05);
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(155, 89, 182, 0.7);
+}
+
+.envelope {
+  background-color: #800080;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(155, 89, 182, 0.6);
+  width: 100%;
+  max-width: 500px;
+  max-height: 70vh;
+  overflow-y: auto;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.envelope.animar-carta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.envelope.hidden {
+  display: none;
+}
+
+.carta {
+  background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: inset 0 0 15px rgba(106, 27, 154, 0.2);
+  color: #4b0082;
+  line-height: 1.5;
+}
+
+.assinatura {
+  font-style: italic;
+  margin-top: 15px;
+  color: #6a1b9a;
+  font-weight: 600;
+}
+
+button#abrirBtn,
+button#escutarBtn {
+  background: linear-gradient(135deg, #9b59b6, #6a1b9a);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(155, 89, 182, 0.7);
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+  z-index: 10;
+  position: relative;
+  user-select: none;
+}
+
+button#abrirBtn:hover,
+button#escutarBtn:hover {
+  background: linear-gradient(135deg, #8e44ad, #4a148c);
+  transform: scale(1.05);
+}
+
+/* Animação de corações */
+.heart {
+  position: fixed;
+  top: -50px;
+  font-size: 30px;
+  color: red;
+  animation: cair 5s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes cair {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
